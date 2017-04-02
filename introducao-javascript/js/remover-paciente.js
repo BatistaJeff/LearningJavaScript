@@ -1,10 +1,17 @@
-var pacientes = document.querySelectorAll(".paciente");
+var pacientes = document.querySelectorAll("tbody");
 
 pacientes.forEach(function(paciente) {
 
-  paciente.addEventListener("dblclick", function() {
+  paciente.addEventListener("dblclick", function(event) {
 
-    this.remove();
+    console.log(event.target);
 
+	event.target.parentNode.classList.add("fadeOut");  
+	
+	  setTimeout(function() {
+		event.target.parentNode.remove();	  
+	  }, 500);
+	  
+	  
   });
 });
